@@ -1,0 +1,102 @@
+@use "../utils/" as u;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-inline: u.rem(24);
+
+  &__pageviews {
+    font-weight: 800;
+    font-size: u.rem(12);
+    line-height: u.rem(16);
+    letter-spacing: 1.71429px;
+    text-align: center;
+
+    text-transform: uppercase;
+    color: var(--grey);
+  }
+
+  &__slider {
+    margin-block-start: u.rem(25);
+  }
+
+  &__price {
+    font-weight: 600;
+    font-size: u.rem(14);
+    line-height: u.rem(19);
+    text-align: center;
+    color: var(--grey);
+    margin-block-start: u.rem(24);
+
+    span {
+      font-weight: 800;
+      font-size: u.rem(32);
+      line-height: u.rem(44);
+      letter-spacing: -0.8px;
+      color: var(--dark-blue);
+      display: inline-block;
+      margin-inline-end: u.rem(10);
+    }
+  }
+
+  &__billing {
+    display: flex;
+    align-items: center;
+    margin-block-start: u.rem(34);
+
+    &__text {
+      font-weight: 600;
+      font-size: u.rem(12);
+      line-height: u.rem(16);
+      color: var(--grey);
+    }
+
+    &__switch {
+      margin-inline: u.rem(16);
+    }
+
+    &__discount {
+      font-weight: 800;
+      font-size: u.rem(10);
+      line-height: u.rem(14);
+      text-align: center;
+      color: #ff8d68;
+      padding: u.rem(2) u.rem(7) u.rem(3) u.rem(6);
+      background: #feede8;
+      border-radius: u.rem(9.5);
+      margin-inline-start: u.rem(5);
+
+      &::before {
+        content: "-";
+      }
+
+      @include u.breakpoint(large) {
+        &::before {
+          content: "";
+        }
+        &::after {
+          content: " discount";
+        }
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-block-start: u.rem(63);
+    list-style-image: url(../images/icon-check.svg);
+
+    //change position
+
+    &__item {
+      font-weight: 600;
+      font-size: u.rem(12);
+      line-height: u.rem(16);
+
+      color: var(--grey);
+    }
+  }
+}

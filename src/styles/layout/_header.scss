@@ -1,0 +1,24 @@
+@use "../utils/" as u;
+.header {
+  padding-block-start: u.rem(89);
+  padding-inline: u.rem(24);
+  padding-block-end: u.rem(64);
+  text-align: center;
+
+  background-image: url(../images/pattern-circles.svg);
+  background-repeat: no-repeat;
+  background-position: top 57px center;
+
+  &__heading {
+    color: var(--dark-blue);
+  }
+
+  &__para {
+    font-weight: 600;
+    font-size: u.rem(15);
+    line-height: u.rem(20);
+    color: var(--grey);
+    width: 60%;
+    margin-inline: auto;
+  }
+}
