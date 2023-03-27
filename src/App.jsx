@@ -2,12 +2,46 @@ import "./styles/styles.scss";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 import Switch from "react-switch";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
-  const [pageviews, setPageviews] = useState(100000);
-  const [pricing, setPricing] = useState(16);
+  const [pageviews, setPageviews] = useState("100K");
   const [toggle, setToggle] = useState(false);
+  const [pricing, setPricing] = useState(16);
+  const [discounted, setDiscounted] = useState(0);
+
+  const marks = {
+    0: 8,
+    25: 12,
+    50: 16,
+    75: 24,
+    100: 36,
+  };
+
+  // Calculates discounted price
+  useEffect(() => {
+    let newPrice = pricing;
+    if (toggle) {
+      newPrice -= 0.25 * pricing;
+    }
+
+    setDiscounted(newPrice);
+  }, [pricing, toggle]);
+
+  // Sets the pageview text
+  useEffect(() => {
+    if (pricing === 8) {
+      setPageviews("10K");
+    } else if (pricing === 12) {
+      setPageviews("50K");
+    } else if (pricing === 16) {
+      setPageviews("100K");
+    } else if (pricing === 24) {
+      setPageviews("500K");
+    } else if (pricing === 36) {
+      setPageviews("1M");
+    }
+  }, [pricing]);
 
   return (
     <div className="App">
@@ -20,9 +54,16 @@ function App() {
       <main>
         <div className="container">
           <p className="container__pageviews">{pageviews} Pageviews</p>
-          <Slider className="container__slider slider" />
+          <Slider
+            marks={marks}
+            defaultValue={50}
+            step={25}
+            onChange={(e) => setPricing(marks[e])}
+            className="container__slider slider"
+          />
           <p className="container__price">
-            <span>${pricing.toFixed(2)}</span>/ month
+            <span>${toggle ? discounted.toFixed(2) : pricing.toFixed(2)}</span>/
+            month
           </p>
           <div className="container__billing">
             <p className="container__billing__text">Monthly Billing</p>

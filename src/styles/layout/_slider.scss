@@ -1,4 +1,45 @@
 @use "../utils/" as u;
 
-.slider {
+.rc-slider {
+  margin-block-start: u.rem(41);
+
+  &-handle {
+    background-image: url(../images/icon-slider.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: u.rem(18);
+    background-color: #10d8c4 !important;
+    border-color: #10d8c4 !important;
+    margin-block-start: u.rem(-19) !important;
+    opacity: 1 !important;
+    box-shadow: 0px 15px 30px rgba(0, 255, 231, 0.6);
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:focus {
+      cursor: grab;
+
+      box-shadow: 0px 15px 30px rgba(0, 255, 231, 0.6) !important;
+    }
+  }
+
+  &-rail {
+    height: u.rem(8) !important;
+    background-color: #ecf0fb !important;
+  }
+
+  &-track {
+    height: u.rem(8) !important;
+    background-color: #a4f3eb;
+  }
+
+  &-step {
+    display: none;
+  }
+
+  &-mark {
+    display: none;
+  }
 }
