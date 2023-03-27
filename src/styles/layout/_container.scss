@@ -10,6 +10,11 @@
   margin-inline: u.rem(24);
   padding: u.rem(34) u.rem(24) u.rem(32) u.rem(24);
 
+  @include u.breakpoint(large) {
+    max-width: u.rem(540);
+    margin-inline: auto;
+  }
+
   &__pageviews {
     font-weight: 800;
     font-size: u.rem(12);
@@ -55,6 +60,10 @@
 
     &__switch {
       margin-inline: u.rem(16);
+
+      &:hover {
+        cursor: pointer;
+      }
     }
 
     &__discount {
@@ -112,5 +121,10 @@
     color: var(--light-grey);
     padding: u.rem(12) u.rem(46) u.rem(13);
     margin-block-start: u.rem(44);
+
+    &:hover {
+      cursor: pointer;
+      color: #ffffff;
+    }
   }
 }
