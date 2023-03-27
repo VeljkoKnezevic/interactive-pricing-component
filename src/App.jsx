@@ -53,18 +53,22 @@ function App() {
       </header>
       <main>
         <div className="container">
-          <p className="container__pageviews">{pageviews} Pageviews</p>
-          <Slider
-            marks={marks}
-            defaultValue={50}
-            step={25}
-            onChange={(e) => setPricing(marks[e])}
-            className="container__slider slider"
-          />
-          <p className="container__price">
-            <span>${toggle ? discounted.toFixed(2) : pricing.toFixed(2)}</span>/
-            month
-          </p>
+          <div className="container__wrapper">
+            <p className="container__pageviews">{pageviews} Pageviews</p>
+            <Slider
+              marks={marks}
+              defaultValue={50}
+              step={25}
+              onChange={(e) => setPricing(marks[e])}
+              className="container__slider slider"
+            />
+            <p className="container__price">
+              <span>
+                ${toggle ? discounted.toFixed(2) : pricing.toFixed(2)}
+              </span>
+              / month
+            </p>
+          </div>
           <div className="container__billing">
             <p className="container__billing__text">Monthly Billing</p>
             <Switch
@@ -83,14 +87,17 @@ function App() {
             <p className="container__billing__text">Yearly Billing</p>
             <p className="container__billing__discount">25%</p>
           </div>
-          <ul className="container__list">
-            <li className="container__list__item">Unlimited websites</li>
-            <li className="container__list__item">100% data ownership</li>
-            <li className="container__list__item">Email reports</li>
-          </ul>
-          <button className="container__button" type="button">
-            Start my trial
-          </button>
+          <div className="line" />
+          <div className="container__list-and-button">
+            <ul className="container__list">
+              <li className="container__list__item">Unlimited websites</li>
+              <li className="container__list__item">100% data ownership</li>
+              <li className="container__list__item">Email reports</li>
+            </ul>
+            <button className="container__button" type="button">
+              Start my trial
+            </button>
+          </div>
         </div>
       </main>
     </div>
